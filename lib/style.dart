@@ -17,3 +17,21 @@ const TextStyle PriceBarTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: Colors.grey,
 );
+
+const TextStyle DetailAppbarTextStyle = TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+);
+
+const TextStyle DetailPriceTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+);
+
+const TextStyle DetailDescBarTextStyle = TextStyle(
+  fontSize: 16.0,
+  fontWeight: FontWeight.w400,
+  color: Colors.black,
+);
