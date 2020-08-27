@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_cupertino/screens/card/card_screen.dart';
+import 'package:shop_cupertino/screens/cart/cart_screen.dart';
+import 'package:shop_cupertino/screens/chat/chat_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -9,10 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
   int _selectedIndex = 0;
-  static const List<Widget> _widgetsScreen = <Widget>[
+  final List<Widget> _children = <Widget>[
     HomeScreen(),
-    CardScreen(),
+    ChatScreen(),
+    CartScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -20,32 +23,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Swag',
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      body: HomeScreen(),
+      body: _children[_selectedIndex],
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.business_center),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.chat_bubble),
             title: Text('Chat'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_membership),
-            title: Text('Card'),
+            icon: Icon(Icons.shopping_basket),
+            title: Text('Cart'),
           ),
         ],
         currentIndex: _selectedIndex,
@@ -63,31 +57,42 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ListView(
-      children: [
-        ProductCard(
-          title: 'Glide in Black',
-          price: '\$29.0',
-          imagePath: 'assets/images/black.png',
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          'Swag',
+          style: Theme.of(context).textTheme.headline1,
         ),
-        ProductCard(
-          title: 'Glide in White',
-          price: '\$29.0',
-          imagePath: 'assets/images/white.png',
-        ),
-        ProductCard(
-          title: 'Glide in Green',
-          price: '\$29.0',
-          imagePath: 'assets/images/green.png',
-        ),
-        ProductCard(
-          title: 'Glide in Grey',
-          price: '\$29.0',
-          imagePath: 'assets/images/grey.png',
-        ),
-      ],
-    ));
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
+      body: Container(
+          child: ListView(
+        children: [
+          ProductCard(
+            title: 'Glide in Black',
+            price: '\$29.0',
+            imagePath: 'assets/images/black.png',
+          ),
+          ProductCard(
+            title: 'Glide in White',
+            price: '\$29.0',
+            imagePath: 'assets/images/white.png',
+          ),
+          ProductCard(
+            title: 'Glide in Green',
+            price: '\$29.0',
+            imagePath: 'assets/images/green.png',
+          ),
+          ProductCard(
+            title: 'Glide in Grey',
+            price: '\$29.0',
+            imagePath: 'assets/images/grey.png',
+          ),
+        ],
+      )),
+    );
   }
 }
 
