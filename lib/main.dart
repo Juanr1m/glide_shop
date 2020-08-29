@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             headline3: DetailPriceTextStyle,
             headline4: DetailDescBarTextStyle,
           )),
-      home: HomeScreen(),
+      home: HomePage(),
     );
   }
 }
